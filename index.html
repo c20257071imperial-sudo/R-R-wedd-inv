@@ -1,0 +1,1938 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roland & Rochelle - Wedding Invitation</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Configuration & Custom CSS -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            sage: '#A48B6E',
+                            champagne: '#F7E7CE',
+                            charcoal: '#333333',
+                            sand: '#F4F1EA',
+                            gold: '#C5A059'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Montserrat"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+
+/* ---------- Dark Mode Variables ---------- */
+body.dark {
+  --cream:       #000000;
+  --ivory:       #000000;
+  --text:        #d4af37;
+  --muted:       #d4af37;
+  --card-bg:     rgba(10,10,10,0.95);
+  --shadow-rose: 0 20px 60px rgba(184,150,46,0.18);
+  --shadow-gold: 0 20px 60px rgba(184,150,46,0.20);
+}
+
+body.dark {
+  background: #000000;
+  background-image: none !important;
+}
+
+/* dark nav */
+body.dark nav {
+  background: rgba(0,0,0,0.92);
+  border-bottom-color: rgba(184,150,46,0.22);
+}
+
+/* dark story / gallery sections */
+body.dark .story  { background: #000000; }
+body.dark .gallery { background: #000000; }
+body.dark .timeline { background: #000000; }
+
+/* dark cards */
+body.dark .card,
+body.dark .event {
+  background: rgba(10,10,10,0.95);
+  border-color: rgba(184,150,46,0.15);
+  color: var(--text);
+}
+
+/* dark glass cards */
+body.dark .glass {
+  background: rgba(10,10,10,0.85);
+  border-color: rgba(184,150,46,0.28);
+}
+
+/* dark loader */
+body.dark .loader { background: #000000; }
+
+body.dark {
+  color: #f0e8d0;
+}
+
+body.dark .text-brand-charcoal,
+body.dark .text-brand-charcoal * {
+  color: #f0e8d0 !important;
+}
+
+body.dark .text-gray-600,
+body.dark .text-gray-500,
+body.dark .text-gray-700,
+body.dark .text-gray-400,
+body.dark .text-gray-300 {
+  color: #b0a080 !important;
+}
+
+body.dark .text-brand-gold,
+body.dark .text-brand-gold * {
+  color: #d4af5a !important;
+}
+
+body.dark .text-white,
+body.dark .text-white * {
+  color: #f0e8d0 !important;
+}
+
+body.dark .nav-link,
+body.dark .logo-text,
+body.dark p,
+body.dark h3,
+body.dark h4,
+body.dark h5,
+body.dark h6,
+body.dark li,
+body.dark label {
+  color: #f0e8d0 !important;
+}
+
+/* Gold shimmer gradient on headings in dark mode */
+body.dark h1,
+body.dark h2 {
+  background: linear-gradient(135deg, #fff5d6 0%, #d4af5a 40%, #fff 70%, #d4af5a 100%) !important;
+  background-size: 200% auto !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  animation: darkShimmer 4s linear infinite !important;
+  filter: drop-shadow(0 2px 12px rgba(212,175,90,0.4));
+}
+
+body.dark span {
+  color: #f0e8d0 !important;
+}
+
+body.dark a {
+  color: #d4af5a !important;
+}
+
+@keyframes darkShimmer {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Glass shimmer effect on cards and sections in dark mode */
+body.dark .bg-brand-sand\/50,
+body.dark .bg-brand-sand {
+  background: rgba(32,28,18,0.75) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(184,150,46,0.18) !important;
+  box-shadow: 0 8px 32px rgba(184,150,46,0.12) !important;
+}
+
+/* Glass shimmer sweep on cards */
+body.dark .bg-brand-sand\/50::after,
+body.dark .bg-brand-sand::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(212,175,90,0.06), transparent);
+  animation: glassShimmer 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes glassShimmer {
+  0%   { left: -100%; }
+  50%  { left: 130%; }
+  100% { left: 130%; }
+}
+
+/* ============================================================
+   COUNTDOWN – light mode base
+   ============================================================ */
+.act1-timer {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.act1-timer-unit {
+  text-align: center;
+  padding: 1rem 1.5rem;
+}
+
+.act1-timer-unit span {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.5rem;
+  font-weight: 600;
+  color: #A48B6E;
+  line-height: 1;
+}
+
+.act1-timer-unit p {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #6b7280;
+  margin-top: 0.5rem;
+}
+
+/* ============================================================
+   COUNTDOWN – dark mode (act2 style)
+   ============================================================ */
+body.dark .countdown-section {
+  background: linear-gradient(135deg, #2a2410 0%, #3a3218 50%, #2a2410 100%) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+body.dark .countdown-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(184,150,46,0.18) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 50%, rgba(212,175,90,0.12) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+body.dark .act1-timer-unit {
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-radius: 24px !important;
+  padding: 2rem 1.75rem !important;
+  min-width: 130px !important;
+  position: relative !important;
+  overflow: hidden !important;
+  animation: timerPop 0.6s cubic-bezier(0.34,1.56,0.64,1) both !important;
+}
+
+body.dark .act1-timer-unit:nth-child(1) { animation-delay: 0.1s !important; }
+body.dark .act1-timer-unit:nth-child(2) { animation-delay: 0.2s !important; }
+body.dark .act1-timer-unit:nth-child(3) { animation-delay: 0.3s !important; }
+body.dark .act1-timer-unit:nth-child(4) { animation-delay: 0.4s !important; }
+
+body.dark .act1-timer-unit::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: conic-gradient(from 0deg, transparent 0%, rgba(212,168,67,0.05) 25%, transparent 50%);
+  animation: rotateSlow 8s linear infinite !important;
+  pointer-events: none;
+}
+
+body.dark .act1-timer-unit span {
+  background: linear-gradient(180deg, #fff, #d4af5a) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  font-size: 3.5rem !important;
+  font-family: 'Cormorant Garamond', serif !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  animation: none !important;
+  filter: none !important;
+}
+
+body.dark .act1-timer-unit p {
+  color: rgba(255,255,255,0.45) !important;
+  font-size: 0.7rem !important;
+  letter-spacing: 0.3em !important;
+  text-transform: uppercase !important;
+  margin-top: 0.5rem !important;
+  -webkit-text-fill-color: rgba(255,255,255,0.45) !important;
+  background: none !important;
+  animation: none !important;
+  filter: none !important;
+}
+
+@keyframes timerPop   { from{opacity:0;transform:scale(0.6) translateY(30px)} to{opacity:1;transform:scale(1) translateY(0)} }
+@keyframes rotateSlow { to { transform: rotate(360deg); } }
+
+/* ============================================================
+   TIMELINE – light & dark (act2 style)
+   ============================================================ */
+.act1-timeline {
+  position: relative;
+  overflow: hidden;
+}
+
+.act1-timeline::before {
+  content: '18.07.2026';
+  position: absolute;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14vw;
+  color: rgba(212,168,67,0.04);
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  white-space: nowrap;
+  pointer-events: none;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.act1-pre-title {
+  font-size: 0.75rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: #b8962e;
+  margin-bottom: 0.5rem;
+}
+
+.act1-section-h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 5vw, 3.5rem);
+  background: linear-gradient(135deg, #c8a96e, #b8962e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.act1-title-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+.act1-title-line::before,
+.act1-title-line::after {
+  content: '';
+  flex: 1;
+  max-width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #d4af5a);
+}
+.act1-title-line::after {
+  background: linear-gradient(90deg, #d4af5a, transparent);
+}
+.act1-title-line span { font-size: 0.9rem; color: #b8962e; }
+
+.act1-timeline-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.act1-timeline-container::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 5%; right: 5%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d4af5a, #b8962e, #d4af5a, transparent);
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+.act1-event {
+  background: rgba(255,253,245,0.92);
+  padding: 1.75rem 1.5rem;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(184,150,46,0.15);
+  border: 1px solid rgba(184,150,46,0.10);
+  text-align: center;
+  min-width: 160px;
+  position: relative;
+  z-index: 1;
+  margin: 0.75rem;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.act1-event::before {
+  content: '';
+  position: absolute;
+  bottom: -22px; left: 50%;
+  transform: translateX(-50%);
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #b8962e, #d4af5a);
+  box-shadow: 0 0 0 4px rgba(184,150,46,0.2), 0 0 0 8px rgba(184,150,46,0.07);
+  animation: act1DotPulse 2s ease-in-out infinite;
+}
+
+@keyframes act1DotPulse {
+  0%,100%{ box-shadow: 0 0 0 4px rgba(184,150,46,0.2), 0 0 0 8px rgba(184,150,46,0.07); }
+  50%    { box-shadow: 0 0 0 8px rgba(184,150,46,0.25), 0 0 0 16px rgba(184,150,46,0.08); }
+}
+
+.act1-event-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+  animation: act1Float 3s ease-in-out infinite;
+}
+.act1-event:nth-child(2) .act1-event-icon { animation-delay: 0.3s; }
+.act1-event:nth-child(3) .act1-event-icon { animation-delay: 0.6s; }
+.act1-event:nth-child(4) .act1-event-icon { animation-delay: 0.9s; }
+.act1-event:nth-child(5) .act1-event-icon { animation-delay: 1.2s; }
+
+@keyframes act1Float {
+  0%,100%{ transform: translateY(0); }
+  50%    { transform: translateY(-8px); }
+}
+
+.act1-event h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  color: #b8962e;
+  margin-bottom: 0.25rem;
+}
+
+.act1-event p {
+  font-size: 0.82rem;
+  color: #8a7a5a;
+}
+
+.act1-event:hover {
+  transform: translateY(-10px) scale(1.04);
+  box-shadow: 0 30px 60px rgba(184,150,46,0.20);
+}
+
+/* ── Timeline DARK MODE ── */
+body.dark .act1-timeline {
+  background: #000000 !important;
+}
+
+body.dark .act1-timeline::before {
+  color: rgba(184,150,46,0.04);
+}
+
+body.dark .act1-section-h2 {
+  background: linear-gradient(135deg, #fff5d6 0%, #d4af5a 40%, #fff 70%, #d4af5a 100%) !important;
+  background-size: 200% auto !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  animation: darkShimmer 4s linear infinite !important;
+}
+
+body.dark .act1-pre-title {
+  color: #d4af5a !important;
+}
+
+body.dark .act1-title-line span {
+  color: #d4af5a !important;
+}
+
+body.dark .act1-event {
+  background: rgba(10,10,10,0.95) !important;
+  border-color: rgba(184,150,46,0.15) !important;
+}
+
+body.dark .act1-event h3 {
+  color: #d4af5a !important;
+  -webkit-text-fill-color: #d4af5a !important;
+  background: none !important;
+  animation: none !important;
+  filter: none !important;
+}
+
+body.dark .act1-event p {
+  color: #b0a080 !important;
+  -webkit-text-fill-color: #b0a080 !important;
+  background: none !important;
+  animation: none !important;
+  filter: none !important;
+}
+
+/* ============================================================
+   ACT2 DARK MODE OVERRIDES – applied to act1 in dark mode
+   ============================================================ */
+
+/* Hero — keep bg image but add dark overlay feel */
+body.dark .hero-bg {
+  background-image: none !important;
+  background: #000000 !important;
+}
+
+/* Story section */
+body.dark #couple {
+  background: #000000 !important;
+  background-image: none !important;
+}
+
+/* Details section */
+body.dark #details {
+  background: #000000 !important;
+  background-image: none !important;
+}
+
+/* Reminders section */
+body.dark section.py-12 {
+  background: #000000 !important;
+  background-image: none !important;
+}
+
+/* Gallery section */
+body.dark #gallery {
+  background: #000000 !important;
+  background-image: none !important;
+}
+
+body.dark .gallery-item img {
+  filter: brightness(0.88) saturate(0.85);
+}
+
+/* Footer */
+body.dark footer {
+  background: #000 !important;
+}
+
+/* Story quote decoration */
+body.dark #couple::before {
+  color: rgba(184,150,46,0.03);
+}
+
+/* Nav in dark */
+body.dark nav,
+body.dark #navbar {
+  background: rgba(0,0,0,0.92) !important;
+  border-bottom-color: rgba(184,150,46,0.22) !important;
+}
+
+/* Cards (bg-brand-sand) in dark — act2 style */
+body.dark .bg-brand-sand\/50 {
+  background: rgba(10,10,10,0.95) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-color: rgba(184,150,46,0.18) !important;
+  box-shadow: 0 20px 60px rgba(184,150,46,0.18) !important;
+}
+
+/* Gallery items hover in dark */
+body.dark .gallery-item:hover img {
+  filter: brightness(1) saturate(1.1);
+}
+
+/* Reveal variants */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.reveal-left.active { opacity: 1; transform: translateX(0); }
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.reveal-right.active { opacity: 1; transform: translateX(0); }
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.reveal-scale.active { opacity: 1; transform: scale(1); }
+
+/* Common keyframes used by act2 styles */
+@keyframes float {
+  0%,100%{ transform: translateY(0); }
+  50%    { transform: translateY(-10px); }
+}
+@keyframes fadeInUp   { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeInDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
+@keyframes gradientSlide { to { background-position: 200% center; } }
+
+/* ── Epic Dark Mode Toggle Switch ── */
+.dark-toggle-wrap {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 1100;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* outer container / pill */
+.toggle-pill {
+  position: relative;
+  width: 70px;
+  height: 34px;
+  border-radius: 17px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1.5px rgba(184,150,46,0.4),
+    0 6px 24px rgba(0,0,0,0.3),
+    0 0 20px rgba(184,150,46,0.15);
+  transition: box-shadow 0.5s ease;
+}
+
+body.dark .toggle-pill {
+  box-shadow:
+    0 0 0 1.5px rgba(120,160,255,0.4),
+    0 6px 24px rgba(0,0,0,0.5),
+    0 0 30px rgba(100,140,255,0.2);
+}
+
+/* sky background — transitions between day and night */
+.toggle-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #87ceeb 0%, #b8d8f0 50%, #d4f0ff 100%);
+  transition: background 0.8s ease;
+}
+
+body.dark .toggle-bg {
+  background: linear-gradient(135deg, #0a0a1a 0%, #0d1030 50%, #111840 100%);
+}
+
+/* stars (only visible in dark) */
+.toggle-star {
+  position: absolute;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  animation: twinkleStar 2s ease-in-out infinite;
+}
+body.dark .toggle-star { opacity: 1; }
+
+.toggle-star:nth-child(1) { width: 2px; height: 2px; top: 5px; left: 8px;  animation-delay: 0s; }
+.toggle-star:nth-child(2) { width: 1.5px; height: 1.5px; top: 10px; left: 18px; animation-delay: 0.4s; }
+.toggle-star:nth-child(3) { width: 2px; height: 2px; top: 4px; left: 28px; animation-delay: 0.8s; }
+.toggle-star:nth-child(4) { width: 1px; height: 1px; top: 14px; left: 12px; animation-delay: 1.2s; }
+
+@keyframes twinkleStar {
+  0%,100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(1.6); opacity: 0.4; }
+}
+
+/* cloud (only visible in light) */
+.toggle-cloud {
+  position: absolute;
+  bottom: 6px;
+  left: 6px;
+  width: 28px;
+  height: 10px;
+  opacity: 1;
+  transition: opacity 0.6s ease;
+}
+body.dark .toggle-cloud { opacity: 0; }
+
+.toggle-cloud::before,
+.toggle-cloud::after {
+  content: '';
+  position: absolute;
+  background: rgba(255,255,255,0.85);
+  border-radius: 50%;
+}
+.toggle-cloud::before {
+  width: 14px; height: 14px;
+  top: -6px; left: 4px;
+}
+.toggle-cloud::after {
+  width: 10px; height: 10px;
+  top: -4px; left: 12px;
+}
+/* cloud base */
+.toggle-cloud-base {
+  position: absolute;
+  bottom: 6px; left: 6px;
+  width: 28px; height: 8px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 4px;
+  opacity: 1;
+  transition: opacity 0.6s ease;
+}
+body.dark .toggle-cloud-base { opacity: 0; }
+
+/* the thumb — sun in light, moon in dark */
+.toggle-thumb {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  z-index: 3;
+  transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+body.dark .toggle-thumb {
+  transform: translateX(36px);
+}
+
+/* SUN face */
+.toggle-sun {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ffe87a, #f5a623);
+  box-shadow:
+    0 0 6px 2px rgba(255,200,50,0.7),
+    0 0 14px 4px rgba(255,180,0,0.35);
+  opacity: 1;
+  transition: opacity 0.4s ease;
+  animation: sunPulse 3s ease-in-out infinite;
+}
+body.dark .toggle-sun { opacity: 0; }
+
+@keyframes sunPulse {
+  0%,100% { box-shadow: 0 0 6px 2px rgba(255,200,50,0.7), 0 0 14px 4px rgba(255,180,0,0.35); }
+  50%     { box-shadow: 0 0 10px 4px rgba(255,220,80,0.9), 0 0 22px 8px rgba(255,180,0,0.5); }
+}
+
+/* sun rays */
+.sun-rays {
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+  animation: rotateSun 8s linear infinite;
+}
+body.dark .sun-rays { opacity: 0; }
+
+@keyframes rotateSun { to { transform: rotate(360deg); } }
+
+.sun-ray {
+  position: absolute;
+  width: 2px;
+  height: 5px;
+  background: rgba(255,210,50,0.8);
+  border-radius: 1px;
+  left: 50%;
+  transform-origin: bottom center;
+}
+.sun-ray:nth-child(1)  { transform: translateX(-50%) rotate(0deg)   translateY(-19px); }
+.sun-ray:nth-child(2)  { transform: translateX(-50%) rotate(45deg)  translateY(-19px); }
+.sun-ray:nth-child(3)  { transform: translateX(-50%) rotate(90deg)  translateY(-19px); }
+.sun-ray:nth-child(4)  { transform: translateX(-50%) rotate(135deg) translateY(-19px); }
+.sun-ray:nth-child(5)  { transform: translateX(-50%) rotate(180deg) translateY(-19px); }
+.sun-ray:nth-child(6)  { transform: translateX(-50%) rotate(225deg) translateY(-19px); }
+.sun-ray:nth-child(7)  { transform: translateX(-50%) rotate(270deg) translateY(-19px); }
+.sun-ray:nth-child(8)  { transform: translateX(-50%) rotate(315deg) translateY(-19px); }
+
+/* MOON face */
+.toggle-moon {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, #e8e0c8, #c8c0a0);
+  box-shadow:
+    0 0 8px 2px rgba(200,192,160,0.5),
+    0 0 18px 4px rgba(150,140,100,0.25);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  overflow: hidden;
+  animation: moonPulse 4s ease-in-out infinite;
+}
+body.dark .toggle-moon { opacity: 1; }
+
+@keyframes moonPulse {
+  0%,100% { box-shadow: 0 0 8px 2px rgba(200,192,160,0.5), 0 0 18px 4px rgba(180,170,130,0.3); }
+  50%     { box-shadow: 0 0 12px 4px rgba(220,210,170,0.7), 0 0 28px 8px rgba(180,170,130,0.5); }
+}
+
+/* crescent shadow */
+.toggle-moon::before {
+  content: '';
+  position: absolute;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: #0d1030;
+  top: 1px; left: 6px;
+}
+
+/* moon craters */
+.toggle-moon::after {
+  content: '';
+  position: absolute;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: rgba(100,90,60,0.3);
+  bottom: 5px; right: 4px;
+  box-shadow: -3px -4px 0 1px rgba(100,90,60,0.2);
+}
+
+/* ============================================================
+   FLOATING PETALS CANVAS (global overlay)
+   ============================================================ */
+#petals-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2.5rem;
+  background: rgba(253,250,244,0.9);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(184,150,46,0.18);
+  box-shadow: 0 2px 30px rgba(184,150,46,0.08);
+  animation: slideNavDown 0.8s cubic-bezier(0.34,1.56,0.64,1) 3s both;
+}
+
+@keyframes slideNavDown { from{transform:translateY(-100%);opacity:0} to{transform:translateY(0);opacity:1} }
+
+nav .logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--rose), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+
+nav .logo::after {
+  content: '♥';
+  position: absolute;
+  font-size: 0.6rem;
+  top: 2px; right: -14px;
+  -webkit-text-fill-color: var(--gold);
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+nav ul { display: flex; gap: 1.5rem; list-style: none; }
+
+nav li a {
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s;
+}
+
+nav li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%;
+  width: 0; height: 1.5px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  transition: width 0.35s ease, left 0.35s ease;
+  border-radius: 2px;
+}
+
+nav li a:hover { color: var(--gold); }
+nav li a:hover::after { width: 100%; left: 0; }
+
+        /* Custom Utilities & Animations */
+        body {
+            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .paper-bg {
+            background-color: #F4F1EA;
+            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+            background-repeat: repeat;
+        }
+
+        body.dark {
+            background-color: #000000 !important;
+        }
+
+        body.dark .paper-bg {
+            background-color: #000000 !important;
+            background-image: none !important;
+        }
+
+        body.dark section,
+        body.dark .bg-brand-sand\/50 {
+            background-color: #000000 !important;
+            background-image: none !important;
+        }
+
+        body.dark .hero-bg {
+            background-image: none !important;
+            background: #000000;
+        }
+
+        /* Scroll Reveal Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Form Styling */
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #A48B6E;
+            box-shadow: 0 0 0 1px #A48B6E;
+        }
+
+        /* Leaf decorative element */
+        .leaf-divider {
+            width: 100px;
+            height: 20px;
+            margin: 0 auto;
+            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 22C12 22 20 18 20 12C20 6 12 2 12 2C12 2 4 6 4 12C4 18 12 22 12 22Z" stroke="%23A48B6E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.6;
+        }
+
+        /* Sticky Nav Transition */
+        #navbar {
+            transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+        }
+        #navbar.scrolled {
+            background-color: rgba(244, 241, 234, 0.95);
+            backdrop-filter: blur(10px);
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+        }
+        #navbar.scrolled .nav-link {
+            color: #333333;
+        }
+        #navbar.scrolled .nav-link:hover {
+            color: #C5A059;
+        }
+        #navbar .nav-link {
+            color: white;
+            transition: color 0.3s ease;
+        }
+        #navbar.scrolled .logo-text {
+            color: #333333;
+        }
+        .logo-text {
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        /* Gallery Styles */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            align-items: stretch;
+        }
+
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(34, 34, 34, 0.06);
+            transform: translateY(0);
+            transition: transform 0.45s cubic-bezier(.2,.9,.2,1), box-shadow 0.35s ease;
+        }
+
+        .gallery-item img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+            will-change: transform;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 48px rgba(34,34,34,0.12);
+        }
+
+        .gallery-item:hover img {
+            transform: none;
+        }
+
+        #show-resource-gallery {
+            position: relative;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+            background: transparent !important;
+            color: inherit !important;
+            border: 1px solid black;
+            box-shadow: none !important;
+            filter: grayscale(100%);
+        }
+
+        #show-resource-gallery::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.25);
+            transform: skewX(-20deg);
+            transition: transform 0.7s ease, opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        #show-resource-gallery:hover {
+            box-shadow: 0 12px 25px rgba(197, 169, 98, 0.25);
+            transform: translateY(-2px);
+            background: rgba(247, 231, 206, 0.95) !important;
+            color: #1f1f1f !important;
+            border-color: rgba(197, 169, 98, 0.8);
+            filter: none;
+        }
+
+        #show-resource-gallery:hover::after {
+            transform: translateX(250%) skewX(-20deg);
+            opacity: 1;
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .fullscreen-gallery {
+            position: fixed;
+            inset: 0;
+            z-index: 60;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            background: rgba(17, 17, 17, 0.95);
+            padding: 2rem;
+        }
+
+        .fullscreen-gallery.active {
+            display: flex;
+        }
+
+        .fullscreen-gallery-inner {
+            position: relative;
+            width: 100%;
+            max-width: min(90vw, 1000px);
+            max-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .fullscreen-gallery img {
+            max-width: 90vw;
+            max-height: 82vh;
+            border-radius: 1rem;
+            box-shadow: 0 32px 80px rgba(0, 0, 0, 0.4);
+            object-fit: contain;
+        }
+
+        .fullscreen-gallery button {
+            position: absolute;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            cursor: pointer;
+            padding: 0.9rem;
+            border-radius: 999px;
+            transition: background-color 0.2s ease;
+        }
+
+        .fullscreen-gallery button:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .fullscreen-gallery .close-btn {
+            top: 1rem;
+            right: 1rem;
+        }
+
+        .fullscreen-gallery .nav-btn {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .fullscreen-gallery .prev-btn {
+            left: 1rem;
+        }
+
+        .fullscreen-gallery .next-btn {
+            right: 1rem;
+        }
+
+        .fullscreen-gallery .caption {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #f3f4f6;
+            font-size: 0.95rem;
+            letter-spacing: 0.05em;
+        }
+        /* Mobile adjustments */
+        @media (max-width: 640px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 0.6rem;
+            }
+
+            .gallery-item img {
+                height: 140px;
+                object-fit: cover;
+            }
+
+            #show-resource-gallery {
+                width: 92%;
+                padding: 12px 18px;
+                font-size: 0.95rem;
+                display: inline-block;
+                max-width: 360px;
+                margin: 0 auto;
+            }
+
+            .fullscreen-gallery .prev-btn,
+            .fullscreen-gallery .next-btn {
+                padding: 0.9rem;
+            }
+
+            .fullscreen-gallery .close-btn {
+                top: 0.6rem;
+                right: 0.6rem;
+                padding: 0.5rem;
+            }
+
+            .hero-bg.h-screen {
+                min-height: 68vh;
+            }
+
+            /* Hero typography */
+            .hero-bg h1 {
+                font-size: 2.6rem !important;
+                line-height: 1.02 !important;
+            }
+
+            .hero-bg p { font-size: 0.95rem !important; }
+
+            #navbar { padding: 0.6rem 0.8rem; }
+            #navbar .logo-text { font-size: 1.125rem; }
+        }
+
+        /* Mobile navigation menu */
+        #mobileMenuButton {
+            position: relative;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 0.5rem;
+            background: transparent;
+        }
+
+        .hamburger-line {
+            width: 1.25rem;
+            height: 2px;
+            background: white;
+            display: block;
+            border-radius: 999px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .mobile-menu {
+            position: fixed;
+            inset: auto 0 0 0;
+            top: 5.25rem;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 40;
+            padding: 1.25rem 1rem 1.5rem;
+            display: none;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            #mobileMenuButton,
+            #mobile-menu {
+                display: none !important;
+            }
+        }
+
+        .mobile-menu-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .mobile-menu-link {
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.25s ease;
+        }
+
+        .mobile-menu-link:hover,
+        .mobile-menu-link:focus-visible {
+            color: #d4af37;
+        }
+    </style>
+</head>
+<body class="font-sans text-brand-charcoal antialiased overflow-x-hidden">
+    <canvas id="petals-canvas"></canvas>
+
+    <div class="dark-toggle-wrap" id="darkToggle" role="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+  <div class="toggle-pill">
+    <div class="toggle-bg"></div>
+    <!-- stars -->
+    <div class="toggle-star"></div>
+    <div class="toggle-star"></div>
+    <div class="toggle-star"></div>
+    <div class="toggle-star"></div>
+    <!-- cloud -->
+    <div class="toggle-cloud"></div>
+    <div class="toggle-cloud-base"></div>
+    <!-- thumb with sun/moon -->
+    <div class="toggle-thumb">
+      <!-- sun -->
+      <div class="toggle-sun"></div>
+      <div class="sun-rays">
+        <div class="sun-ray"></div><div class="sun-ray"></div>
+        <div class="sun-ray"></div><div class="sun-ray"></div>
+        <div class="sun-ray"></div><div class="sun-ray"></div>
+        <div class="sun-ray"></div><div class="sun-ray"></div>
+      </div>
+      <!-- moon -->
+      <div class="toggle-moon"></div>
+    </div>
+  </div>
+</div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 top-0 py-6 px-6 md:px-12 flex justify-between items-center">
+        <a href="#home" class="font-serif text-2xl tracking-widest logo-text">R & R</a>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-8 uppercase text-xs tracking-[0.2em] font-medium">
+            <a href="#couple" class="nav-link hover:text-brand-gold transition duration-300">Our Story</a>
+            <a href="#details" class="nav-link hover:text-brand-gold transition duration-300">Details</a>
+            <a href="#gallery" class="nav-link hover:text-brand-gold transition duration-300">Gallery</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobileMenuButton" class="md:hidden flex items-center justify-center w-11 h-11 border border-white/25 rounded-full text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-gold" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+    </nav>
+
+    <div id="mobile-menu" class="mobile-menu md:hidden">
+        <div class="mobile-menu-links">
+            <a href="#couple" class="mobile-menu-link">Our Story</a>
+            <a href="#details" class="mobile-menu-link">Details</a>
+            <a href="#gallery" class="mobile-menu-link">Gallery</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg h-screen flex flex-col justify-center items-center text-center px-4 relative">
+        <div class="reveal">
+            <p class="text-white uppercase tracking-[0.3em] text-sm md:text-base mb-6 font-light">
+                <span class="font-bold">In God's love and perfect will,</span><br>
+                <span class="font-light">He has called us to become one in christ</span>
+            </p>
+            <h1 class="font-serif text-6xl md:text-8xl lg:text-9xl text-white mb-6 font-light">
+                Roland <span class="text-brand-gold mx-2">&</span> Rochelle
+            </h1>
+            <p class="text-white uppercase tracking-[0.2em] text-lg md:text-xl font-light mt-4 border-t border-b border-white/30 py-4 inline-block px-8">
+                <span class="font-bold">July 18, 2026</span>
+            </p>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white/70">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section class="countdown-section py-16 text-white paper-bg">
+        <div class="max-w-4xl mx-auto px-4 reveal">
+            <div id="countdown" class="act1-timer flex flex-wrap justify-center gap-6 md:gap-8 text-center">
+                <div class="act1-timer-unit">
+                    <span id="days">00</span>
+                    <p>Days</p>
+                </div>
+                <div class="act1-timer-unit">
+                    <span id="hours">00</span>
+                    <p>Hours</p>
+                </div>
+                <div class="act1-timer-unit">
+                    <span id="minutes">00</span>
+                    <p>Minutes</p>
+                </div>
+                <div class="act1-timer-unit">
+                    <span id="seconds">00</span>
+                    <p>Seconds</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Couple / Intro Section -->
+    <section id="couple" class="py-24 paper-bg">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-serif text-4xl md:text-5xl mb-4 text-brand-charcoal">Join Us in Celebration</h2>
+                <div class="leaf-divider"></div>
+                <p class="mt-6 text-gray-600 max-w-2xl mx-auto font-light leading-relaxed text-lg md:text-xl">
+                    Because you have shared in our lives by your friendship and love, we invite you to join us as we exchange our marriage vows and begin our new life together.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center reveal">
+                <div class="order-2 md:order-1 relative">
+                    <div class="absolute inset-0 bg-brand-sage transform translate-x-4 translate-y-4 rounded-t-[10rem]"></div>
+                    <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=2070&auto=format&fit=crop" alt="Couple" class="relative z-10 w-full h-auto object-cover rounded-t-[10rem] shadow-xl grayscale hover:grayscale-0 transition duration-700">
+                </div>
+                <div class="order-1 md:order-2 text-center md:text-left space-y-6">
+                    <h3 class="font-serif text-3xl text-brand-sage italic">Our Love Story</h3>
+                    <p class="text-gray-600 font-light leading-relaxed">
+                        Nine years ago, on March 18, 2018, our journey began when the Groom made a simple yet life-changing decision to pursue the Bride. What started as a chance connection soon blossomed into a beautiful relationship built on love and support.
+                        Along this journey, we have been blessed by the love, guidance, and support of our families, relatives, and friends, including those who are no longer with us today. Though they cannot be here to celebrate this special day, their love and cherished memories remain forever in our hearts, and they will always be a treasured part of our life story.
+                    </p>
+                </div>
+            </div>
+            <div class="mt-8 reveal text-gray-600 font-light leading-relaxed max-w-3xl mx-auto text-center md:text-left">
+                <p>
+                    Now, at 29 years old, we have grown together through every high and low, supporting one another as we pursued our dreams and built the lives we envisioned. We find ourselves in a season where our careers are flourishing, but above all, we cherish the life we have built side by side.
+                    We may be complete opposites—a pessimist (Bride) and an optimist (Groom)—but somehow, those differences became the very thing that brought us together and made us stronger. What began as two people crossing paths grew into a partnership filled with love, trust, and companionship, making us inseparable ever since.
+                    We are a simple couple with big dreams: to continue growing together, create beautiful memories, and embrace life's adventures hand in hand.
+                    After nine wonderful years of love, laughter, and unwavering support, we are excited to begin our next chapter as husband and wife.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Details Section -->
+    <section id="details" class="py-24 pb-32 paper-bg relative">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-20 reveal">
+                <p class="uppercase text-brand-sage tracking-[0.2em] text-sm font-semibold mb-2">When & Where</p>
+                <h2 class="font-serif text-5xl md:text-6xl text-brand-charcoal">The Details</h2>
+                <div class="leaf-divider mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Ceremony Card -->
+                <div class="bg-brand-sand/50 p-10 md:p-14 rounded-sm border border-brand-sage/20 shadow-sm text-center reveal flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-full bg-brand-sage/10 flex items-center justify-center mb-6 text-brand-gold text-2xl">
+                        <i class="fa-solid fa-church"></i>
+                    </div>
+                    <h3 class="font-serif text-3xl mb-2">The Ceremony</h3>
+                    <p class="uppercase text-xs tracking-[0.1em] text-brand-gold font-medium mb-6">Saturday, July 18, 2026</p>
+                    
+                    <div class="space-y-4 text-gray-600 font-light w-full border-t border-brand-sage/20 pt-6">
+                        <p><i class="far fa-clock mr-2 text-brand-sage"></i> 2:30 PM</p>
+                        <p><i class="fas fa-map-marker-alt mr-2 text-brand-sage"></i> Oratory of st. Nicholas of Tolentine</p>
+                        <p class="text-sm">University of Negros Occidental - Recoletos(UNO-R)<br>54 Lizares st. Bacolod City</p>
+                    </div>
+                </div>
+
+                <!-- Reception Card -->
+                <div class="bg-brand-sand/50 p-10 md:p-14 rounded-sm border border-brand-sage/20 shadow-sm text-center reveal flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-full bg-brand-sage/10 flex items-center justify-center mb-6 text-brand-gold text-2xl">
+                        <i class="fa-solid fa-glass-cheers"></i>
+                    </div>
+                    <h3 class="font-serif text-3xl mb-2">The Reception</h3>
+                    <p class="uppercase text-xs tracking-[0.1em] text-brand-gold font-medium mb-6">Reception to follow</p>
+                    
+                    <div class="space-y-4 text-gray-600 font-light w-full border-t border-brand-sage/20 pt-6">
+                        <p><i class="far fa-clock mr-2 text-brand-sage"></i> 5:30 PM - Late</p>
+                        <p><i class="fas fa-map-marker-alt mr-2 text-brand-sage"></i> Roy's Hotel and Convention Center</p>
+                        <p class="text-sm">Araneta Highway<br>Bacolod City</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reminder Section -->
+    <section class="py-12 paper-bg">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-12 reveal">
+                <h2 class="font-serif text-4xl md:text-5xl mb-4 text-brand-charcoal">Reminders</h2>
+                <div class="leaf-divider mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-brand-sand/50 p-10 md:p-14 rounded-sm border border-brand-sage/20 shadow-sm text-center reveal flex flex-col items-center">
+                    <h3 class="font-serif text-3xl text-brand-charcoal mb-4">Please Arrive on Time</h3>
+                    <p class="mb-4">Kindly be seated at the church no later than 2:30 PM, 30 minutes before the ceremony begins. Please note that some pews are reserved for our Principal Sponsors and immediate family members.</p>
+                    <p>For seating assistance, kindly coordinate with our wedding coordinator, Little Miss Planner.</p>
+                </div>
+                <div class="bg-brand-sand/50 p-10 md:p-14 rounded-sm border border-brand-sage/20 shadow-sm text-center reveal flex flex-col items-center">
+                    <h3 class="font-serif text-3xl text-brand-charcoal mb-4">Semi Unplugged Ceremony</h3>
+                    <p class="mb-4">We invite you to be fully present with us during our wedding ceremony. While we welcome a few photos and videos, we kindly ask that you keep phones and cameras to a minimum and avoid blocking the aisle or our professional photographers. We encourage you to put your devices away and simply enjoy this special moment with us.</p>
+                </div>
+                <div class="bg-brand-sand/50 p-10 md:p-14 rounded-sm border border-brand-sage/20 shadow-sm text-center reveal flex flex-col items-center">
+                    <h3 class="font-serif text-3xl text-brand-charcoal mb-4">Respect the Sacredness of the Ceremony</h3>
+                    <p class="mb-4">Please observe silence, refrain from moving around during the ceremony, and help us maintain a solemn and meaningful atmosphere.</p>
+                </div>
+                <div class="bg-brand-sand/50 p-10 md:p-14 rounded-sm border border-brand-sage/20 shadow-sm text-center reveal flex flex-col items-center">
+                    <h3 class="font-serif text-3xl text-brand-charcoal mb-4">After the Ceremony</h3>
+                    <p class="mb-4">Following the church ceremony, light refreshments and a photo booth will be available at Roy’s Hotel. Upon arrival, kindly check the seating board to locate your assigned table and seat. For seating assistance, kindly coordinate with our wedding coordinator. Thank you for celebrating this special day with us. We look forward to sharing these beautiful moments together.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP section removed per request -->
+
+    <!-- Wedding Day Timeline Section -->
+    <section class="act1-timeline paper-bg py-24" id="timeline">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 reveal-scale">
+                <p class="act1-pre-title">Plan Your Day</p>
+                <h2 class="act1-section-h2">Wedding Day Timeline</h2>
+                <div class="act1-title-line"><span>✦</span></div>
+            </div>
+            <div class="act1-timeline-container">
+                <div class="act1-event reveal" style="transition-delay:0.1s">
+                    <span class="act1-event-icon">🌹</span>
+                    <h3>2:00 PM</h3>
+                    <p>Guest Arrival</p>
+                </div>
+                <div class="act1-event reveal" style="transition-delay:0.2s">
+                    <span class="act1-event-icon">💒</span>
+                    <h3>2:30 PM</h3>
+                    <p>Wedding Ceremony</p>
+                </div>
+                <div class="act1-event reveal" style="transition-delay:0.3s">
+                    <span class="act1-event-icon">🥂</span>
+                    <h3>5:00 PM</h3>
+                    <p>Cocktail Hour</p>
+                </div>
+                <div class="act1-event reveal" style="transition-delay:0.4s">
+                    <span class="act1-event-icon">🎙️</span>
+                    <h3>6:30 PM</h3>
+                    <p>Reception Program</p>
+                </div>
+                <div class="act1-event reveal" style="transition-delay:0.45s">
+                    <span class="act1-event-icon">🍽️</span>
+                    <h3>7:00 PM</h3>
+                    <p>Dinner</p>
+                </div>
+                <div class="act1-event reveal" style="transition-delay:0.5s">
+                    <span class="act1-event-icon">🎉</span>
+                    <h3>9:30 PM</h3>
+                    <p>Celebration</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-24 paper-bg">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center mb-10 reveal">
+                    <p class="uppercase text-brand-sage tracking-[0.2em] text-sm font-semibold mb-2">Moments</p>
+                    <h2 class="font-serif text-4xl md:text-5xl text-brand-charcoal">Gallery</h2>
+                </div>
+
+                <div class="gallery-grid reveal">
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1502784444185-7a3b8f0a3b57?q=80&w=1400&auto=format&fit=crop" alt="Couple smiling"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=1400&auto=format&fit=crop" alt="Rings on flowers"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1400&auto=format&fit=crop" alt="Sunset moment"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1495555687392-1533a3b4b3d4?q=80&w=1400&auto=format&fit=crop" alt="Decor details"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1476288530288-55b7a1c9f9a0?q=80&w=1400&auto=format&fit=crop" alt="Dinner setup"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?q=80&w=1400&auto=format&fit=crop" alt="Dancing under lights"></div>
+                </div>
+                <div class="mt-10 text-center reveal">
+                    <button id="show-resource-gallery" class="px-8 py-3 rounded-full bg-brand-sage text-white font-semibold uppercase tracking-[0.15em] shadow-lg hover:bg-brand-gold transition duration-300" aria-label="Open resource gallery"><span>Click here</span></button>
+                
+                <br><span>click here to see full invitation letter
+                </span>
+                </div>
+            </div>
+        </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-charcoal text-white py-12 text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-serif text-3xl mb-4">Roland & Rochelle</h2>
+            <p class="uppercase text-xs tracking-[0.2em] text-brand-gold mb-8">7 . 18 . 2026</p>
+            
+            <p class="text-xs text-gray-500 font-light">&copy; Roland & Rochelle Wedding.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+
+        /* ── Dark Mode ── */
+const darkToggle = document.getElementById('darkToggle');
+const prefersDark = localStorage.getItem('darkMode') === 'true';
+
+function applyDark(isDark) {
+  document.body.classList.toggle('dark', isDark);
+  document.dispatchEvent(new CustomEvent('darkModeChanged', { detail: { dark: isDark } }));
+}
+
+if (prefersDark) applyDark(true);
+
+darkToggle.addEventListener('click', () => {
+  const isDark = !document.body.classList.contains('dark');
+  applyDark(isDark);
+  localStorage.setItem('darkMode', isDark);
+});
+
+/* ============================================================
+   CANVAS ANIMATION
+   Petals in light mode  ·  Stars + Shooting Stars in dark mode
+   ============================================================ */
+(function () {
+  const canvas = document.getElementById('petals-canvas');
+  const ctx    = canvas ? canvas.getContext('2d') : null;
+  if (!canvas || !ctx) return;
+
+  let mode     = document.body.classList.contains('dark') ? 'dark' : 'light';
+  let petals   = [];
+  let stars    = [];
+  let shooters = [];
+  let animId   = null;
+
+  /* ── resize ── */
+  function resize() {
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+    if (mode === 'dark') buildStars();
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  /* ────────────────────────────────
+     LIGHT MODE – Petals
+  ──────────────────────────────── */
+  const PETAL_COLORS = [
+    'rgba(212,175,90,0.55)', 'rgba(232,210,140,0.50)',
+    'rgba(245,237,216,0.70)', 'rgba(255,248,225,0.65)',
+    'rgba(200,169,110,0.45)', 'rgba(253,250,240,0.75)',
+  ];
+
+  function randomPetal(fromTop) {
+    return {
+      x:        Math.random() * canvas.width,
+      y:        fromTop ? -20 : Math.random() * canvas.height,
+      w:        2  + Math.random() * 4,
+      h:        1.5  + Math.random() * 3,
+      rotation: Math.random() * Math.PI * 2,
+      rotSpeed: (Math.random() - 0.5) * 0.04,
+      speedX:   (Math.random() - 0.5) * 0.7,
+      speedY:   0.5 + Math.random() * 1.2,
+      opacity:  0.3 + Math.random() * 0.65,
+      color:    PETAL_COLORS[Math.floor(Math.random() * PETAL_COLORS.length)],
+      sway:     Math.random() * Math.PI * 2,
+      swaySpeed:0.01 + Math.random() * 0.02,
+    };
+  }
+
+  function buildPetals() {
+    petals = Array.from({ length: 40 }, () => randomPetal(false));
+  }
+
+  function drawPetal(p) {
+    ctx.save();
+    ctx.translate(p.x, p.y);
+    ctx.rotate(p.rotation);
+    ctx.globalAlpha = p.opacity;
+    ctx.beginPath();
+    ctx.ellipse(0, 0, p.w, p.h, 0, 0, Math.PI * 2);
+    ctx.fillStyle = p.color;
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function animatePetals() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    petals.forEach(p => {
+      p.sway     += p.swaySpeed;
+      p.x        += p.speedX + Math.sin(p.sway) * 0.6;
+      p.y        += p.speedY;
+      p.rotation += p.rotSpeed;
+      if (p.y > canvas.height + 30) Object.assign(p, randomPetal(true));
+      drawPetal(p);
+    });
+    if (mode === 'light') animId = requestAnimationFrame(animatePetals);
+  }
+
+  /* ────────────────────────────────
+     DARK MODE – Twinkling Stars
+  ──────────────────────────────── */
+  function buildStars() {
+    const count = Math.floor((canvas.width * canvas.height) / 4000);
+    stars = Array.from({ length: count }, () => ({
+      x:       Math.random() * canvas.width,
+      y:       Math.random() * canvas.height,
+      r:       0.4 + Math.random() * 1.6,
+      opacity: 0.2 + Math.random() * 0.8,
+      twinkle: Math.random() * Math.PI * 2,
+      twinkleSpeed: 0.008 + Math.random() * 0.025,
+      color:   Math.random() > 0.85
+                 ? `rgba(255,248,200,1)`   // warm star
+                 : `rgba(255,255,255,1)`,  // white star
+    }));
+  }
+
+  /* ────────────────────────────────
+     DARK MODE – Shooting Stars
+  ──────────────────────────────── */
+  function randomShooter() {
+    const startX = Math.random() * canvas.width * 0.8;
+    const startY = Math.random() * canvas.height * 0.4;
+    const angle  = (Math.PI / 6) + Math.random() * (Math.PI / 8); // 30–52°
+    const speed  = 10 + Math.random() * 16;
+    const len    = 80 + Math.random() * 180;
+    return {
+      x:       startX,
+      y:       startY,
+      vx:      Math.cos(angle) * speed,
+      vy:      Math.sin(angle) * speed,
+      len,
+      opacity: 0,
+      phase:   'fadein',   // fadein → travel → fadeout
+      trail:   [],         // last positions for tail
+      maxTrail: Math.floor(len / speed) + 2,
+      color:   Math.random() > 0.5 ? 'rgba(255,248,200,' : 'rgba(180,220,255,',
+    };
+  }
+
+  function spawnShooters() {
+    // keep 1–3 shooters alive at once
+    const SPAWN_CHANCE = 0.018;
+    if (shooters.length < 3 && Math.random() < SPAWN_CHANCE) {
+      shooters.push(randomShooter());
+    }
+  }
+
+  function drawStarField() {
+    stars.forEach(s => {
+      s.twinkle += s.twinkleSpeed;
+      const alpha = s.opacity * (0.5 + 0.5 * Math.sin(s.twinkle));
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = s.color.replace('1)', `${alpha})`);
+      ctx.fill();
+    });
+  }
+
+  function drawShooters() {
+    shooters = shooters.filter(s => {
+      // update trail
+      s.trail.push({ x: s.x, y: s.y });
+      if (s.trail.length > s.maxTrail) s.trail.shift();
+
+      // move
+      s.x += s.vx;
+      s.y += s.vy;
+
+      // fade in / fade out lifecycle
+      if (s.phase === 'fadein') {
+        s.opacity += 0.08;
+        if (s.opacity >= 1) { s.opacity = 1; s.phase = 'travel'; }
+      } else if (s.phase === 'travel') {
+        s.travelDist = (s.travelDist || 0) + Math.hypot(s.vx, s.vy);
+        if (s.travelDist > s.len * 1.8) s.phase = 'fadeout';
+      } else {
+        s.opacity -= 0.05;
+        if (s.opacity <= 0) return false; // remove
+      }
+
+      if (s.x > canvas.width + 100 || s.y > canvas.height + 100) return false;
+
+      // draw tail
+      if (s.trail.length > 1) {
+        const grad = ctx.createLinearGradient(
+          s.trail[0].x, s.trail[0].y, s.x, s.y
+        );
+        grad.addColorStop(0,   s.color + '0)');
+        grad.addColorStop(0.6, s.color + (s.opacity * 0.4) + ')');
+        grad.addColorStop(1,   s.color + s.opacity + ')');
+
+        ctx.beginPath();
+        ctx.moveTo(s.trail[0].x, s.trail[0].y);
+        s.trail.forEach(pt => ctx.lineTo(pt.x, pt.y));
+        ctx.lineTo(s.x, s.y);
+        ctx.strokeStyle = grad;
+        ctx.lineWidth   = 1.5;
+        ctx.lineCap     = 'round';
+        ctx.stroke();
+      }
+
+      // draw head glow
+      const glow = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, 4);
+      glow.addColorStop(0,   s.color + s.opacity + ')');
+      glow.addColorStop(0.4, s.color + (s.opacity * 0.6) + ')');
+      glow.addColorStop(1,   s.color + '0)');
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, 4, 0, Math.PI * 2);
+      ctx.fillStyle = glow;
+      ctx.fill();
+
+      return true;
+    });
+  }
+
+  function animateDark() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawStarField();
+    spawnShooters();
+    drawShooters();
+    if (mode === 'dark') animId = requestAnimationFrame(animateDark);
+  }
+
+  /* ────────────────────────────────
+     Switch between modes
+  ──────────────────────────────── */
+  function startLight() {
+    mode = 'light';
+    if (animId) cancelAnimationFrame(animId);
+    shooters = [];
+    stars    = [];
+    buildPetals();
+    animatePetals();
+  }
+
+  function startDark() {
+    mode = 'dark';
+    if (animId) cancelAnimationFrame(animId);
+    petals = [];
+    buildStars();
+    animateDark();
+  }
+
+  // Initial boot
+  if (mode === 'dark') startDark(); else startLight();
+
+  // Listen for toggle
+  document.addEventListener('darkModeChanged', (e) => {
+    if (e.detail.dark) startDark(); else startLight();
+  });
+})();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Countdown Timer ---
+            // Set wedding date to match the hero section date (Year, Month (0-indexed), Day, Hour, Min)
+            const weddingDate = new Date(2026, 6, 18, 0, 0, 0).getTime();
+
+            function updateCountdown() {
+                const now = Date.now();
+                const distance = weddingDate - now;
+
+                if (distance <= 0) {
+                    clearInterval(timer);
+                    document.getElementById("countdown").innerHTML = "<div class='font-serif text-3xl text-brand-sage'>Today is the day!</div>";
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+                document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+                document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+                document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+            }
+
+            const timer = setInterval(updateCountdown, 1000);
+            updateCountdown();
+
+
+            // --- Scroll Reveal Animation ---
+            function reveal() {
+                var reveals = document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-scale");
+                for (var i = 0; i < reveals.length; i++) {
+                    var windowHeight = window.innerHeight;
+                    var elementTop = reveals[i].getBoundingClientRect().top;
+                    var elementVisible = 100;
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveals[i].classList.add("active");
+                    }
+                }
+            }
+            window.addEventListener("scroll", reveal);
+            reveal(); // Trigger on load
+
+
+            // --- Sticky Navbar Color Change ---
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // --- Mobile menu toggling ---
+            const mobileMenuButton = document.getElementById('mobileMenuButton');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+            function toggleMobileMenu() {
+                const isOpen = mobileMenu.classList.toggle('active');
+                mobileMenuButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                if (isOpen) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = '';
+                }
+            }
+
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', toggleMobileMenu);
+            }
+
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mobileMenu.classList.contains('active')) {
+                        toggleMobileMenu();
+                    }
+                });
+            });
+
+            document.addEventListener('click', (event) => {
+                if (mobileMenu.classList.contains('active') && !mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
+                    toggleMobileMenu();
+                }
+            });
+
+            // --- Resource Gallery Overlay ---
+            const resourceImages = [
+                { src: 'resources/inv_cover(1).jpg', alt: 'Invitation cover' },
+                { src: 'resources/inv_page(2).jpg', alt: 'Invitation page 2' },
+                { src: 'resources/inv_page(3).jpg', alt: 'Invitation page 3' },
+                { src: 'resources/inv_page(2).jpg', alt: 'Invitation page 2' }
+            ];
+            let currentResourceIndex = 0;
+
+            const galleryOverlay = document.getElementById('resource-gallery-overlay');
+            const galleryImage = document.getElementById('resource-gallery-image');
+            const galleryCaption = document.getElementById('resource-gallery-caption');
+            const openGalleryButton = document.getElementById('show-resource-gallery');
+            const closeGalleryButton = document.getElementById('close-resource-gallery');
+            const prevGalleryButton = document.getElementById('prev-resource-gallery');
+            const nextGalleryButton = document.getElementById('next-resource-gallery');
+
+            function updateResourceGalleryImage() {
+                const image = resourceImages[currentResourceIndex];
+                galleryImage.src = image.src;
+                galleryImage.alt = image.alt;
+                galleryCaption.textContent = image.alt;
+            }
+
+            function openResourceGallery() {
+                if (galleryOverlay) galleryOverlay.classList.add('active');
+                updateResourceGalleryImage();
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeResourceGallery() {
+                if (galleryOverlay) galleryOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+                if (openGalleryButton) openGalleryButton.focus();
+            }
+
+            function showPreviousResourceImage() {
+                currentResourceIndex = (currentResourceIndex - 1 + resourceImages.length) % resourceImages.length;
+                updateResourceGalleryImage();
+            }
+
+            function showNextResourceImage() {
+                currentResourceIndex = (currentResourceIndex + 1) % resourceImages.length;
+                updateResourceGalleryImage();
+            }
+
+            if (openGalleryButton) {
+                openGalleryButton.addEventListener('click', () => {
+                    window.location.href = 'inv-letter.html';
+                });
+            }
+
+            if (closeGalleryButton) {
+                closeGalleryButton.addEventListener('click', closeResourceGallery);
+            }
+
+            if (prevGalleryButton) {
+                prevGalleryButton.addEventListener('click', showPreviousResourceImage);
+            }
+
+            if (nextGalleryButton) {
+                nextGalleryButton.addEventListener('click', showNextResourceImage);
+            }
+
+            // Close the overlay when clicking outside the image area
+            if (galleryOverlay) {
+                galleryOverlay.addEventListener('click', (event) => {
+                    if (event.target === galleryOverlay) {
+                        closeResourceGallery();
+                    }
+                });
+            }
+
+            // Mobile menu and related interactivity removed to disable clickable buttons on the page.
+
+
+            // RSVP form handling removed; form elements were removed from the page.
+        });
+    </script>
+</body>
+</html>
