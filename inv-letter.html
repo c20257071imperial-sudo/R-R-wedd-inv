@@ -220,6 +220,69 @@ body.dark .slide-hint { color: var(--gold-light); }
 @media(max-width:860px){.slide-arrow.prev{left:.5rem;} .slide-arrow.next{right:.5rem;} .slide-display{height:380px;}}
 @media(max-width:600px){.thumb{width:60px;} .slide-display{height:260px;}}
 
+/* ═══════════════════════════
+   SKELETON LOADER
+═══════════════════════════ */
+#skeleton-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  transition: opacity 0.5s ease;
+}
+body.dark #skeleton-loader { background: #000; }
+
+#skeleton-loader.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sk-logo {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.8rem;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light), var(--gold));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: goldShimmer 2s linear infinite;
+}
+
+.sk-block {
+  border-radius: 12px;
+  background: linear-gradient(90deg,
+    rgba(184,150,46,0.08) 0%,
+    rgba(184,150,46,0.18) 40%,
+    rgba(184,150,46,0.08) 100%);
+  background-size: 200% 100%;
+  animation: skShimmer 1.4s ease-in-out infinite;
+}
+body.dark .sk-block {
+  background: linear-gradient(90deg,
+    rgba(255,255,255,0.04) 0%,
+    rgba(184,150,46,0.12) 40%,
+    rgba(255,255,255,0.04) 100%);
+  background-size: 200% 100%;
+}
+
+@keyframes skShimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* skeleton size classes used in HTML */
+.sk-main   { width: min(700px, 90vw); height: 460px; border-radius: 24px; }
+.sk-thumbs { display: flex; gap: .75rem; justify-content: center; }
+.sk-thumb  { width: 80px; height: 60px; border-radius: 10px; }
+.sk-bar    { width: min(700px, 90vw); height: 2px; border-radius: 2px; }
+.sk-btn    { width: 130px; height: 38px; border-radius: 50px; }
+
 /* ── Dark Mode ── */
 body.dark {
   background: #000000 !important;
@@ -317,6 +380,21 @@ body.dark .toggle-thumb { transform: translateX(18px); background: #fff; box-sha
     document.body.classList.add('dark');
   }
 </script>
+
+<!-- ═══ SKELETON LOADER ═══ -->
+<div id="skeleton-loader" aria-hidden="true">
+  <div class="sk-logo">Roland &amp; Rochelle</div>
+  <div class="sk-block sk-main"></div>
+  <div class="sk-thumbs">
+    <div class="sk-block sk-thumb"></div>
+    <div class="sk-block sk-thumb"></div>
+    <div class="sk-block sk-thumb"></div>
+    <div class="sk-block sk-thumb"></div>
+    <div class="sk-block sk-thumb"></div>
+  </div>
+  <div class="sk-block sk-bar"></div>
+  <div class="sk-block sk-btn"></div>
+</div>
 
 <canvas id="petals-canvas"></canvas>
 <a class="back-btn" href="index.html">← Back to Invitation</a>
@@ -483,6 +561,14 @@ darkToggle.addEventListener('click', () => {
   darkIcon.textContent = isDark ? '☀️' : '🌙';
   localStorage.setItem('darkMode', isDark);
   document.dispatchEvent(new CustomEvent('darkModeChanged', { detail: { dark: isDark } }));
+});
+
+/* ── Skeleton dismiss ── */
+window.addEventListener('load', () => {
+  const sk = document.getElementById('skeleton-loader');
+  if (!sk) return;
+  sk.classList.add('fade-out');
+  sk.addEventListener('transitionend', () => sk.remove(), { once: true });
 });
 </script>
 </body>
