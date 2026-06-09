@@ -136,7 +136,7 @@ body.dark h2 {
   filter: drop-shadow(0 2px 12px rgba(212,175,90,0.4));
 }
 
-body.dark span {
+body.dark span:not(.toggle-star):not(.toggle-cloud):not(.toggle-cloud-base):not(.hamburger-line):not(.sun-ray):not(.footer-hearts) {
   color: #f0e8d0 !important;
 }
 
@@ -169,6 +169,13 @@ body.dark .bg-brand-sand::after {
   background: linear-gradient(120deg, transparent, rgba(212,175,90,0.06), transparent);
   animation: glassShimmer 4s ease-in-out infinite;
   pointer-events: none;
+}
+
+/* Ensure cards are positioned for the shimmer to work */
+body.dark .bg-brand-sand\/50,
+body.dark .bg-brand-sand {
+  position: relative;
+  overflow: hidden;
 }
 
 @keyframes glassShimmer {
@@ -879,6 +886,13 @@ nav li a:hover::after { width: 100%; left: 0; }
             background-attachment: fixed;
         }
 
+        /* Remove fixed attachment on mobile — causes scroll jump on iOS */
+        @media (max-width: 768px) {
+            .hero-bg {
+                background-attachment: scroll;
+            }
+        }
+
         .paper-bg {
             background-color: #F4F1EA;
             background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
@@ -953,7 +967,7 @@ nav li a:hover::after { width: 100%; left: 0; }
             color: #C5A059;
         }
         #navbar .nav-link {
-           color: #333333;
+            color: #333333;
             transition: color 0.3s ease;
         }
         #navbar.scrolled .logo-text {
@@ -1222,9 +1236,95 @@ nav li a:hover::after { width: 100%; left: 0; }
         .mobile-menu-link:focus-visible {
             color: #d4af37;
         }
+
+        /* ═══════════════════════════
+           SKELETON LOADER
+        ═══════════════════════════ */
+        #skeleton-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: #F4F1EA;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.25rem;
+            padding: 2rem;
+            transition: opacity 0.5s ease;
+        }
+        body.dark #skeleton-loader { background: #000; }
+
+        #skeleton-loader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .sk-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            color: #A48B6E;
+            margin-bottom: 0.5rem;
+        }
+        body.dark .sk-logo { color: #d4af5a; }
+
+        .sk-block {
+            border-radius: 12px;
+            background: linear-gradient(90deg,
+                rgba(164,139,110,0.10) 0%,
+                rgba(164,139,110,0.22) 40%,
+                rgba(164,139,110,0.10) 100%);
+            background-size: 200% 100%;
+            animation: skShimmer 1.4s ease-in-out infinite;
+        }
+        body.dark .sk-block {
+            background: linear-gradient(90deg,
+                rgba(255,255,255,0.04) 0%,
+                rgba(184,150,46,0.12) 40%,
+                rgba(255,255,255,0.04) 100%);
+            background-size: 200% 100%;
+        }
+
+        @keyframes skShimmer {
+            0%   { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .sk-hero    { width: min(700px, 90vw); height: 180px; border-radius: 16px; }
+        .sk-row     { display: flex; gap: 1rem; width: min(700px, 90vw); }
+        .sk-card    { flex: 1; height: 120px; border-radius: 12px; }
+        .sk-line    { height: 14px; border-radius: 8px; }
+        .sk-line.w-full  { width: min(700px, 90vw); }
+        .sk-line.w-half  { width: min(350px, 45vw); }
+        .sk-line.w-third { width: min(220px, 30vw); }
+        /* skeleton classes used in HTML */
+        .sk-main   { width: min(700px, 90vw); height: 460px; border-radius: 24px; }
+        .sk-thumbs { display: flex; gap: .75rem; justify-content: center; }
+        .sk-thumb  { width: 80px; height: 60px; border-radius: 10px; }
+        .sk-bar    { width: min(700px, 90vw); height: 2px; border-radius: 2px; }
+        .sk-btn    { width: 130px; height: 38px; border-radius: 50px; }
     </style>
 </head>
 <body class="font-sans text-brand-charcoal antialiased overflow-x-hidden">
+
+    <!-- Apply dark mode immediately -->
+    <script>if(localStorage.getItem('darkMode')==='true')document.body.classList.add('dark');</script>
+
+    <!-- ═══ SKELETON LOADER ═══ -->
+    <div id="skeleton-loader" aria-hidden="true">
+        <div class="sk-logo">Roland &amp; Rochelle</div>
+        <div class="sk-block sk-hero"></div>
+        <div class="sk-row">
+            <div class="sk-block sk-card"></div>
+            <div class="sk-block sk-card"></div>
+        </div>
+        <div class="sk-block sk-line w-full"></div>
+        <div class="sk-block sk-line w-half"></div>
+        <div class="sk-block sk-line w-third"></div>
+    </div>
+
     <canvas id="petals-canvas"></canvas>
 
     <div class="dark-toggle-wrap" id="darkToggle" role="button" aria-label="Toggle dark mode" title="Toggle dark mode">
@@ -1486,12 +1586,12 @@ nav li a:hover::after { width: 100%; left: 0; }
                 </div>
 
                 <div class="gallery-grid reveal">
-                    <div class="gallery-item"><img src="/https://images.unsplash.com/photo-1502784444185-7a3b8f0a3b57?q=80&w=1400&auto=format&fit=crop" alt="R & R"></div>
-                    <div class="gallery-item"><img src="/https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=1400&auto=format&fit=crop" alt="R & R"></div>
-                    <div class="gallery-item"><img src="/https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1400&auto=format&fit=crop" alt="R & R"></div>
-                    <div class="gallery-item"><img src="/https://images.unsplash.com/photo-1495555687392-1533a3b4b3d4?q=80&w=1400&auto=format&fit=crop" alt="R & R"></div>
-                    <div class="gallery-item"><img src="/https://images.unsplash.com/photo-1476288530288-55b7a1c9f9a0?q=80&w=1400&auto=format&fit=crop" alt="R & R"></div>
-                    <div class="gallery-item"><img src="/https://images.unsplash.com/photo-1511988617509-a57c8a288659?q=80&w=1400&auto=format&fit=crop" alt="R & R"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1502784444185-7a3b8f0a3b57?q=80&w=1400&auto=format&fit=crop" alt="Couple smiling"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=1400&auto=format&fit=crop" alt="Rings on flowers"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1400&auto=format&fit=crop" alt="Sunset moment"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1495555687392-1533a3b4b3d4?q=80&w=1400&auto=format&fit=crop" alt="Decor details"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1476288530288-55b7a1c9f9a0?q=80&w=1400&auto=format&fit=crop" alt="Dinner setup"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?q=80&w=1400&auto=format&fit=crop" alt="Dancing under lights"></div>
                 </div>
                 <div class="mt-10 text-center reveal">
                     <button id="show-resource-gallery" class="px-8 py-3 rounded-full bg-brand-sage text-white font-semibold uppercase tracking-[0.15em] shadow-lg hover:bg-brand-gold transition duration-300" aria-label="Open resource gallery"><span>Click here</span></button>
@@ -1517,19 +1617,25 @@ nav li a:hover::after { width: 100%; left: 0; }
 
         /* ── Dark Mode ── */
 const darkToggle = document.getElementById('darkToggle');
-const prefersDark = localStorage.getItem('darkMode') === 'true';
 
 function applyDark(isDark) {
   document.body.classList.toggle('dark', isDark);
   document.dispatchEvent(new CustomEvent('darkModeChanged', { detail: { dark: isDark } }));
 }
 
-if (prefersDark) applyDark(true);
-
+// Dark mode already applied by inline script — just wire up the toggle
 darkToggle.addEventListener('click', () => {
   const isDark = !document.body.classList.contains('dark');
   applyDark(isDark);
   localStorage.setItem('darkMode', isDark);
+});
+
+/* ── Skeleton dismiss ── */
+window.addEventListener('load', () => {
+  const sk = document.getElementById('skeleton-loader');
+  if (!sk) return;
+  sk.classList.add('fade-out');
+  sk.addEventListener('transitionend', () => sk.remove(), { once: true });
 });
 
 /* ============================================================
