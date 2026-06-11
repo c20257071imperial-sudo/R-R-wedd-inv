@@ -23,9 +23,7 @@ body{font-family:'Poppins',sans-serif;background:var(--cream);color:var(--text);
 /* Petals / Stars canvas */
 #petals-canvas{position:fixed;inset:0;pointer-events:none;z-index:0;}
 
-/* ═══════════════════════════
-   SLIDESHOW
-═══════════════════════════ */
+/* SLIDESHOW */
 .slideshow-section{position:relative;z-index:1;background:transparent;padding:7rem 0 4rem;}
 
 /* Back button */
@@ -42,9 +40,7 @@ body{font-family:'Poppins',sans-serif;background:var(--cream);color:var(--text);
 }
 .back-btn:hover{transform:translateX(-4px);box-shadow:0 8px 30px rgba(184,150,46,0.22);}
 
-/* ═══════════════════════════
-   SLIDESHOW
-═══════════════════════════ */
+/* SLIDESHOW */
 
 .section-header{text-align:center;margin-bottom:3rem;padding:0 1.5rem;}
 .section-header .pre-title{font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;}
@@ -147,9 +143,7 @@ body.dark .slide-hint { color: var(--gold-light); }
 .progress-bar{height:2px;background:rgba(184,150,46,0.12);border-radius:2px;overflow:hidden;}
 .progress-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:2px;}
 
-/* ═══════════════════════════
-   LIGHTBOX
-═══════════════════════════ */
+/* LIGHTBOX */
 .lightbox{
   display:none;position:fixed;inset:0;z-index:9999;
   background:rgba(20,15,5,0.93);backdrop-filter:blur(10px);
@@ -191,9 +185,7 @@ body.dark .slide-hint { color: var(--gold-light); }
   color:rgba(255,248,225,0.65);letter-spacing:.06em;white-space:nowrap;
 }
 
-/* ═══════════════════════════
-   FOOTER
-═══════════════════════════ */
+/* FOOTER */
 .letter-footer{
   position:relative;z-index:1;
   background:linear-gradient(135deg,#2a2410,#3a3218);
@@ -207,9 +199,7 @@ body.dark .slide-hint { color: var(--gold-light); }
 }
 .letter-footer .footer-sub{font-size:.75rem;letter-spacing:.18em;color:rgba(255,255,255,0.35);text-transform:uppercase;}
 
-/* ═══════════════════════════
-   KEYFRAMES
-═══════════════════════════ */
+/* KEYFRAME */
 @keyframes goldShimmer  { to{background-position:200% center;} }
 @keyframes fadeIn       { from{opacity:0} to{opacity:1} }
 @keyframes fadeInUp     { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
@@ -220,9 +210,7 @@ body.dark .slide-hint { color: var(--gold-light); }
 @media(max-width:860px){.slide-arrow.prev{left:.5rem;} .slide-arrow.next{right:.5rem;} .slide-display{height:380px;}}
 @media(max-width:600px){.thumb{width:60px;} .slide-display{height:260px;}}
 
-/* ═══════════════════════════
-   SKELETON LOADER
-═══════════════════════════ */
+/* SKELETON LOADER */
 #skeleton-loader {
   position: fixed;
   inset: 0;
@@ -283,7 +271,7 @@ body.dark .sk-block {
 .sk-bar    { width: min(700px, 90vw); height: 2px; border-radius: 2px; }
 .sk-btn    { width: 130px; height: 38px; border-radius: 50px; }
 
-/* ── Dark Mode ── */
+/*  Dark Mode  */
 body.dark {
   background: #000000 !important;
   --cream: #000000;
@@ -381,7 +369,7 @@ body.dark .toggle-thumb { transform: translateX(18px); background: #fff; box-sha
   }
 </script>
 
-<!-- ═══ SKELETON LOADER ═══ -->
+<!--  SKELETON LOADER  -->
 <div id="skeleton-loader" aria-hidden="true">
   <div class="sk-logo">Roland &amp; Rochelle</div>
   <div class="sk-block sk-main"></div>
@@ -405,7 +393,7 @@ body.dark .toggle-thumb { transform: translateX(18px); background: #fff; box-sha
   </div>
 </div>
 
-<!-- ═══ SLIDESHOW ═══ -->
+<!--  SLIDESHOW  -->
 <section class="slideshow-section">
   <div class="section-header">
     <p class="pre-title">The Invitation</p>
@@ -444,7 +432,7 @@ body.dark .toggle-thumb { transform: translateX(18px); background: #fff; box-sha
   </div>
 </section>
 
-<!-- ═══ FOOTER ═══ -->
+<!--  FOOTER  -->
 <footer class="letter-footer">
   <span class="footer-names">Roland &amp; Rochelle</span>
   <p class="footer-sub">July 18, 2026 · Bacolod City · Made With Love</p>
@@ -452,7 +440,7 @@ body.dark .toggle-thumb { transform: translateX(18px); background: #fff; box-sha
 
   <div style="position:fixed;bottom:0.6rem;left:0.8rem;z-index:9000;font-size:0.55rem;letter-spacing:0.35em;color:rgba(184,150,46,0.35);pointer-events:none;user-select:none;font-family:monospace;">RENZ</div>
 
-<!-- ═══ LIGHTBOX ═══ -->
+<!--  LIGHTBOX  -->
 <div class="lightbox" id="lightbox">
   <button class="lightbox-close" id="lbClose">✕</button>
   <button class="lightbox-nav lb-prev" id="lbPrev">&#8592;</button>
@@ -462,7 +450,7 @@ body.dark .toggle-thumb { transform: translateX(18px); background: #fff; box-sha
 </div>
 
 <script>
-/* ── Petals / Stars / Shooting Stars ── */
+/*  Petals / Stars / Shooting Stars  */
 (function(){
   const c=document.getElementById('petals-canvas'),ctx=c.getContext('2d');
   const COLS=['rgba(212,175,90,0.45)','rgba(232,210,140,0.4)','rgba(245,237,216,0.6)','rgba(255,248,225,0.55)','rgba(200,169,110,0.35)','rgba(240,230,190,0.5)'];
@@ -509,7 +497,7 @@ body.dark .toggle-thumb { transform: translateX(18px); background: #fff; box-sha
   document.addEventListener('darkModeChanged',e=>{if(e.detail.dark)startDark();else startLight();});
 })();
 
-/* ── Slideshow ── */
+/*  Slideshow  */
 const slides=document.querySelectorAll('.slide-img'),thumbs=document.querySelectorAll('.thumb');
 const counter=document.getElementById('slideCounter'),prevBtn=document.getElementById('prevBtn'),nextBtn=document.getElementById('nextBtn');
 const autoplayBtn=document.getElementById('autoplayBtn'),progressWrap=document.getElementById('progressWrap'),progressFill=document.getElementById('progressFill'),slideDisplay=document.getElementById('slideDisplay');
@@ -535,7 +523,7 @@ autoplayBtn.addEventListener('click',()=>intv?stopAuto():startAuto());
 startAuto();
 document.addEventListener('keydown',e=>{if(lb.classList.contains('open'))return;if(e.key==='ArrowLeft')goTo(cur-1);if(e.key==='ArrowRight')goTo(cur+1);});
 
-/* ── Lightbox ── */
+/*  Lightbox  */
 const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg'),lbCap=document.getElementById('lbCaption');
 const lbClose=document.getElementById('lbClose'),lbPrev=document.getElementById('lbPrev'),lbNext=document.getElementById('lbNext');
 const srcs=Array.from(slides).map(s=>({src:s.src,alt:s.alt}));let lbc=0;
@@ -550,7 +538,7 @@ lbPrev.addEventListener('click',e=>{e.stopPropagation();lbGo(lbc-1);});
 lbNext.addEventListener('click',e=>{e.stopPropagation();lbGo(lbc+1);});
 document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')lbGo(lbc-1);if(e.key==='ArrowRight')lbGo(lbc+1);});
 
-/* ── Dark Mode ── */
+/*  Dark Mode  */
 const darkToggle = document.getElementById('darkToggle');
 const darkIcon   = document.getElementById('darkIcon');
 if (localStorage.getItem('darkMode') === 'true') {
@@ -565,7 +553,7 @@ darkToggle.addEventListener('click', () => {
   document.dispatchEvent(new CustomEvent('darkModeChanged', { detail: { dark: isDark } }));
 });
 
-/* ── Skeleton dismiss ── */
+/*  Skeleton dismiss  */
 window.addEventListener('load', () => {
   const sk = document.getElementById('skeleton-loader');
   if (!sk) return;
