@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roland & Rochelle - Wedding Invitation</title>
     
-    <!-- Tailwind CSS -->
+    
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts -->
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome for Icons -->
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Tailwind Configuration & Custom CSS -->
+    
     <script>
         tailwind.config = {
             theme: {
@@ -41,7 +41,7 @@
 
     <style>
 
-/* ---------- Dark Mode Variables ---------- */
+/* Dark Mode Variables */
 body.dark {
   --cream:       #000000;
   --ivory:       #000000;
@@ -63,7 +63,7 @@ body.dark nav {
   border-bottom-color: rgba(184,150,46,0.22);
 }
 
-/* dark story / gallery sections */
+/* gallery sections */
 body.dark .story  { background: #000000; }
 body.dark .gallery { background: #000000; }
 body.dark .timeline { background: #000000; }
@@ -124,7 +124,7 @@ body.dark label {
   color: #f0e8d0 !important;
 }
 
-/* Gold shimmer gradient on headings in dark mode */
+/* Gold gradient on headings in dark mode */
 body.dark h1,
 body.dark h2 {
   background: linear-gradient(135deg, #fff5d6 0%, #d4af5a 40%, #fff 70%, #d4af5a 100%) !important;
@@ -149,7 +149,7 @@ body.dark a {
   100% { background-position: 200% center; }
 }
 
-/* Glass shimmer effect on cards and sections in dark mode */
+/* Glass effect on cards and sections in dark mode */
 body.dark .bg-brand-sand\/50,
 body.dark .bg-brand-sand {
   background: rgba(32,28,18,0.75) !important;
@@ -159,7 +159,7 @@ body.dark .bg-brand-sand {
   box-shadow: 0 8px 32px rgba(184,150,46,0.12) !important;
 }
 
-/* Glass shimmer sweep on cards */
+/* Glass sweep on cards */
 body.dark .bg-brand-sand\/50::after,
 body.dark .bg-brand-sand::after {
   content: '';
@@ -171,7 +171,7 @@ body.dark .bg-brand-sand::after {
   pointer-events: none;
 }
 
-/* Ensure cards are positioned for the shimmer to work */
+/* cards are positioned to work */
 body.dark .bg-brand-sand\/50,
 body.dark .bg-brand-sand {
   position: relative;
@@ -184,9 +184,7 @@ body.dark .bg-brand-sand {
   100% { left: 130%; }
 }
 
-/* ============================================================
-   COUNTDOWN – light mode base
-   ============================================================ */
+/* COUNTDOWN – light mode base */
 .act1-timer {
   display: flex;
   justify-content: center;
@@ -218,9 +216,7 @@ body.dark .bg-brand-sand {
   margin-top: 0.5rem;
 }
 
-/* ============================================================
-   COUNTDOWN – dark mode (act2 style)
-   ============================================================ */
+/* COUNTDOWN – dark mode */
 body.dark .countdown-section {
   background: linear-gradient(135deg, #2a2410 0%, #3a3218 50%, #2a2410 100%) !important;
   position: relative;
@@ -293,9 +289,7 @@ body.dark .act1-timer-unit p {
 @keyframes timerPop   { from{opacity:0;transform:scale(0.6) translateY(30px)} to{opacity:1;transform:scale(1) translateY(0)} }
 @keyframes rotateSlow { to { transform: rotate(360deg); } }
 
-/* ============================================================
-   TIMELINE – light & dark (act2 style)
-   ============================================================ */
+/* TIMELINE – light & dark (act2 style) */
 .act1-timeline {
   position: relative;
   overflow: hidden;
@@ -438,7 +432,7 @@ body.dark .act1-timer-unit p {
   box-shadow: 0 30px 60px rgba(184,150,46,0.20);
 }
 
-/* ── Timeline DARK MODE ── */
+/* Timeline DARK MODE */
 body.dark .act1-timeline {
   background: #000000 !important;
 }
@@ -485,11 +479,9 @@ body.dark .act1-event p {
   filter: none !important;
 }
 
-/* ============================================================
-   ACT2 DARK MODE OVERRIDES – applied to act1 in dark mode
-   ============================================================ */
+/* DARK MODE */
 
-/* Hero — keep bg image but add dark overlay feel */
+/* Hero */
 body.dark .hero-bg {
   background-image: none !important;
   background: #000000 !important;
@@ -540,7 +532,7 @@ body.dark #navbar {
   border-bottom-color: rgba(184,150,46,0.22) !important;
 }
 
-/* Cards (bg-brand-sand) in dark — act2 style */
+/* Cards */
 body.dark .bg-brand-sand\/50 {
   background: rgba(10,10,10,0.95) !important;
   backdrop-filter: blur(16px) !important;
@@ -576,7 +568,7 @@ body.dark .gallery-item:hover img {
 }
 .reveal-scale.active { opacity: 1; transform: scale(1); }
 
-/* Common keyframes used by act2 styles */
+
 @keyframes float {
   0%,100%{ transform: translateY(0); }
   50%    { transform: translateY(-10px); }
@@ -585,7 +577,7 @@ body.dark .gallery-item:hover img {
 @keyframes fadeInDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
 @keyframes gradientSlide { to { background-position: 200% center; } }
 
-/* ── Epic Dark Mode Toggle Switch ── */
+/* Mode Toggle Switch  */
 .dark-toggle-wrap {
   position: fixed;
   right: 1.5rem;
@@ -595,7 +587,7 @@ body.dark .gallery-item:hover img {
   user-select: none;
 }
 
-/* outer container / pill */
+/* outer container */
 .toggle-pill {
   position: relative;
   width: 70px;
@@ -616,7 +608,7 @@ body.dark .toggle-pill {
     0 0 30px rgba(100,140,255,0.2);
 }
 
-/* sky background — transitions between day and night */
+/* sky background  transitions between day and night */
 .toggle-bg {
   position: absolute;
   inset: 0;
@@ -797,9 +789,7 @@ body.dark .toggle-moon { opacity: 1; }
   box-shadow: -3px -4px 0 1px rgba(100,90,60,0.2);
 }
 
-/* ============================================================
-   FLOATING PETALS CANVAS (global overlay)
-   ============================================================ */
+/* FLOATING PETALS CANVAS (global overlay) */
 #petals-canvas {
   position: fixed;
   inset: 0;
@@ -808,9 +798,7 @@ body.dark .toggle-moon { opacity: 1; }
 }
 
 
-/* ============================================================
-   NAVIGATION
-   ============================================================ */
+/* NAVIGATION */
 nav {
   position: sticky;
   top: 0;
@@ -886,7 +874,7 @@ nav li a:hover::after { width: 100%; left: 0; }
             background-attachment: fixed;
         }
 
-        /* Remove fixed attachment on mobile — causes scroll jump on iOS */
+        
         @media (max-width: 768px) {
             .hero-bg {
                 background-attachment: scroll;
@@ -1237,9 +1225,7 @@ nav li a:hover::after { width: 100%; left: 0; }
             color: #d4af37;
         }
 
-        /* ═══════════════════════════
-           SKELETON LOADER
-        ═══════════════════════════ */
+        /* SKELETON LOADER */
         #skeleton-loader {
             position: fixed;
             inset: 0;
@@ -1312,7 +1298,7 @@ nav li a:hover::after { width: 100%; left: 0; }
     <!-- Apply dark mode immediately -->
     <script>if(localStorage.getItem('darkMode')==='true')document.body.classList.add('dark');</script>
 
-    <!-- ═══ SKELETON LOADER ═══ -->
+    <!--  SKELETON LOADER  -->
     <div id="skeleton-loader" aria-hidden="true">
         <div class="sk-logo">Roland &amp; Rochelle</div>
         <div class="sk-block sk-hero"></div>
@@ -1532,7 +1518,7 @@ nav li a:hover::after { width: 100%; left: 0; }
         </div>
     </section>
 
-    <!-- RSVP section removed per request -->
+    
 
     <!-- Wedding Day Timeline Section -->
     <section class="act1-timeline paper-bg py-24" id="timeline">
@@ -1617,7 +1603,7 @@ nav li a:hover::after { width: 100%; left: 0; }
     <!-- JavaScript -->
     <script>
 
-        /* ── Dark Mode ── */
+        /*  Dark Mode  */
 const darkToggle = document.getElementById('darkToggle');
 
 function applyDark(isDark) {
@@ -1625,14 +1611,14 @@ function applyDark(isDark) {
   document.dispatchEvent(new CustomEvent('darkModeChanged', { detail: { dark: isDark } }));
 }
 
-// Dark mode already applied by inline script — just wire up the toggle
+// Dark mode 
 darkToggle.addEventListener('click', () => {
   const isDark = !document.body.classList.contains('dark');
   applyDark(isDark);
   localStorage.setItem('darkMode', isDark);
 });
 
-/* ── Skeleton dismiss ── */
+/*  Skeleton dismiss  */
 window.addEventListener('load', () => {
   const sk = document.getElementById('skeleton-loader');
   if (!sk) return;
@@ -1640,10 +1626,7 @@ window.addEventListener('load', () => {
   sk.addEventListener('transitionend', () => sk.remove(), { once: true });
 });
 
-/* ============================================================
-   CANVAS ANIMATION
-   Petals in light mode  ·  Stars + Shooting Stars in dark mode
-   ============================================================ */
+/* CANVAS ANIMATION Petals in light mode  ·  Stars + Shooting Stars in dark mode */
 (function () {
   const canvas = document.getElementById('petals-canvas');
   const ctx    = canvas ? canvas.getContext('2d') : null;
@@ -1655,7 +1638,7 @@ window.addEventListener('load', () => {
   let shooters = [];
   let animId   = null;
 
-  /* ── resize ── */
+  /* resize */
   function resize() {
     canvas.width  = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -1664,9 +1647,7 @@ window.addEventListener('load', () => {
   resize();
   window.addEventListener('resize', resize);
 
-  /* ────────────────────────────────
-     LIGHT MODE – Petals
-  ──────────────────────────────── */
+  /* LIGHT MODE – Petals */
   const PETAL_COLORS = [
     'rgba(212,175,90,0.55)', 'rgba(232,210,140,0.50)',
     'rgba(245,237,216,0.70)', 'rgba(255,248,225,0.65)',
@@ -1719,9 +1700,7 @@ window.addEventListener('load', () => {
     if (mode === 'light') animId = requestAnimationFrame(animatePetals);
   }
 
-  /* ────────────────────────────────
-     DARK MODE – Twinkling Stars
-  ──────────────────────────────── */
+  /* DARK MODE – Twinkling Stars */
   function buildStars() {
     const count = Math.floor((canvas.width * canvas.height) / 4000);
     stars = Array.from({ length: count }, () => ({
@@ -1737,9 +1716,7 @@ window.addEventListener('load', () => {
     }));
   }
 
-  /* ────────────────────────────────
-     DARK MODE – Shooting Stars
-  ──────────────────────────────── */
+  /* DARK MODE – Shooting Stars */
   function randomShooter() {
     const startX = Math.random() * canvas.width * 0.8;
     const startY = Math.random() * canvas.height * 0.4;
@@ -1844,9 +1821,7 @@ window.addEventListener('load', () => {
     if (mode === 'dark') animId = requestAnimationFrame(animateDark);
   }
 
-  /* ────────────────────────────────
-     Switch between modes
-  ──────────────────────────────── */
+  /* Switch between modes */
   function startLight() {
     mode = 'light';
     if (animId) cancelAnimationFrame(animId);
@@ -1875,8 +1850,7 @@ window.addEventListener('load', () => {
 
         document.addEventListener('DOMContentLoaded', () => {
             
-            // --- Countdown Timer ---
-            // Set wedding date to match the hero section date (Year, Month (0-indexed), Day, Hour, Min)
+            // Countdown Timer
             const weddingDate = new Date(2026, 6, 18, 0, 0, 0).getTime();
 
             function updateCountdown() {
@@ -1904,7 +1878,7 @@ window.addEventListener('load', () => {
             updateCountdown();
 
 
-            // --- Scroll Reveal Animation ---
+            // Scroll Reveal Animation 
             function reveal() {
                 var reveals = document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-scale");
                 for (var i = 0; i < reveals.length; i++) {
@@ -1920,7 +1894,7 @@ window.addEventListener('load', () => {
             reveal(); // Trigger on load
 
 
-            // --- Sticky Navbar Color Change ---
+            //  Sticky Navbar Color Change 
             const navbar = document.getElementById('navbar');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
@@ -1930,7 +1904,7 @@ window.addEventListener('load', () => {
                 }
             });
 
-            // --- Mobile menu toggling ---
+            //  Mobile menu toggling 
             const mobileMenuButton = document.getElementById('mobileMenuButton');
             const mobileMenu = document.getElementById('mobile-menu');
             const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
@@ -1963,7 +1937,7 @@ window.addEventListener('load', () => {
                 }
             });
 
-            // --- Resource Gallery Overlay ---
+            //  Resource Gallery Overlay 
             const resourceImages = [
                 { src: 'resources/inv_cover(1).jpg', alt: 'Invitation cover' },
                 { src: 'resources/inv_page(2).jpg', alt: 'Invitation page 2' },
@@ -2036,10 +2010,7 @@ window.addEventListener('load', () => {
                 });
             }
 
-            // Mobile menu and related interactivity removed to disable clickable buttons on the page.
-
-
-            // RSVP form handling removed; form elements were removed from the page.
+            
         });
     </script>
 </body>
