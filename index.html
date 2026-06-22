@@ -1023,6 +1023,19 @@ nav li a:hover::after { width: 100%; left: 0; }
             to { transform: rotate(360deg); }
         }
 
+        @keyframes qrOutlineGlow {
+            0%, 100% {
+                box-shadow: 0 0 0 2px #A48B6E, 0 12px 30px rgba(164, 139, 110, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 0 2px #C5A059, 0 12px 30px rgba(197, 160, 89, 0.5);
+            }
+        }
+
+        .qr-image {
+            animation: qrOutlineGlow 3s ease-in-out infinite;
+        }
+
         .gallery-item:hover {
             transform: translateY(-8px);
             box-shadow: 0 24px 48px rgba(34,34,34,0.12);
@@ -1471,14 +1484,6 @@ nav li a:hover::after { width: 100%; left: 0; }
                     </p>
                 </div>
             </div>
-            <div class="mt-8 reveal text-gray-600 font-light leading-relaxed max-w-3xl mx-auto text-center md:text-left">
-                <p>
-                    Now, at 29 years old, we have grown together through every high and low, supporting one another as we pursued our dreams and built the lives we envisioned. We find ourselves in a season where our careers are flourishing, but above all, we cherish the life we have built side by side.
-                    We may be complete opposites—a pessimist (Bride) and an optimist (Groom)—but somehow, those differences became the very thing that brought us together and made us stronger. What began as two people crossing paths grew into a partnership filled with love, trust, and companionship, making us inseparable ever since.
-                    We are a simple couple with big dreams: to continue growing together, create beautiful memories, and embrace life's adventures hand in hand.
-                    After nine wonderful years of love, laughter, and unwavering support, we are excited to begin our next chapter as husband and wife.
-                </p>
-            </div>
         </div>
     </section>
 
@@ -1524,8 +1529,6 @@ nav li a:hover::after { width: 100%; left: 0; }
             </div>
         </div>
     </section>
-
-    
     <section class="py-12 paper-bg">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-12 reveal">
@@ -1548,7 +1551,7 @@ nav li a:hover::after { width: 100%; left: 0; }
                 </div>
                 <div class="bg-brand-sand/50 p-10 md:p-14 rounded-sm border border-brand-sage/20 shadow-sm text-center reveal flex flex-col items-center">
                     <h3 class="font-serif text-3xl text-brand-charcoal mb-4">After the Ceremony</h3>
-                    <p class="mb-4">Following the church ceremony, light refreshments and a photo booth will be available at Roy’s Hotel. Upon arrival, kindly check the seating board to locate your assigned table and seat. For seating assistance, kindly coordinate with our wedding coordinator. Thank you for celebrating this special day with us. We look forward to sharing these beautiful moments together.</p>
+                    <p class="mb-4">Following the church ceremony, light refreshments and a photo booth will be available at Roy’s Hotel. Upon arrival, kindly check the seating board to locate your assigned table and seat.</p>
                 </div>
             </div>
         </div>
@@ -1599,6 +1602,25 @@ nav li a:hover::after { width: 100%; left: 0; }
         </div>
     </section>
 
+    <section id="gift" class="py-20 paper-bg">
+        <div class="max-w-4xl mx-auto px-6 text-center reveal">
+            <h2 class="font-serif text-4xl md:text-5xl mb-4 text-brand-charcoal">With Gratitude</h2>
+            <div class="leaf-divider mx-auto mb-8"></div>
+            <p class="text-gray-600 font-light leading-relaxed text-lg md:text-xl">
+                <strong>your presence at our wedding is the greatest gift of all.</strong>
+            </p>
+            <p class="text-gray-600 font-light leading-relaxed text-lg md:text-xl mt-6">
+                However, if you wish to honor us with a gift, a contribution toward our future together would be sincerely appreciated.
+            </p>
+            <p class="text-gray-600 font-light leading-relaxed text-lg md:text-xl mt-6">
+                Kindly scan the QR code below.
+            </p>
+            <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6 items-center justify-items-center">
+                <img src="resources/QR1.jpeg" alt="QR code 1" class="qr-image w-full max-w-xs rounded-xl border border-brand-sage/20">
+                <img src="resources/QR2.jpeg" alt="QR code 2" class="qr-image w-full max-w-xs rounded-xl border border-brand-sage/20">
+            </div>
+        </div>
+    </section>
         
         <section id="gallery" class="py-24 paper-bg">
             <div class="max-w-6xl mx-auto px-6">
